@@ -20,7 +20,7 @@ namespace Assignment.Repository
             var data = dbContext.CountryGwpItems.Where(x => x.Country == request.Country);
             foreach (var lob in request.LineOfBusiness)
             {
-                op.Add(lob, data.Where(x => x.LineOfBusiness == lob).Select(x => ( x.Y2008 + x.Y2009 + x.Y2010 + x.Y2011 + x.Y2012 + x.Y2013 + x.Y2014 + x.Y2015)/8).First());
+                op.Add(lob, data.Where(x => x.LineOfBusiness == lob).Select(x => ( x.Y2008 + x.Y2009 + x.Y2010 + x.Y2011 + x.Y2012 + x.Y2013 + x.Y2014 + x.Y2015)/8).FirstOrDefault());
             }
 
             return op;
